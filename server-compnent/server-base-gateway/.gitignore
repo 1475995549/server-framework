@@ -1,0 +1,59 @@
+# VM
+*.class
+*.lck
+*.lgo
+*.epoch
+hs_err_pid*
+
+# IDE
+.classpath
+.factorypath
+.project
+.settings
+.metadata
+.launch
+.idea
+*.iws
+*.iml
+*.ipr
+.mvn
+mvnw*
+nbproject
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# Package
+*.jar
+*.war
+*.ear
+*.zip
+*.gz
+target
+logs
+
+
+# Temp
+*~
+*.diff
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.zip
+*.vi
+*.dump
+.cache
+.tmproj
+.DS_Store
+
+# Local
+*-dev.yml
+*-dev.xml
+*-dev.properties
+*-local.properties
+release.properties
+pom.xml.*Backup

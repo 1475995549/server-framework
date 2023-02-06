@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.zhihan.framework</groupId>
+    <artifactId>server-base-auth</artifactId>
+    <version>0.1.11-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <parent>
+        <groupId>cn.zhihan.framework</groupId>
+        <artifactId>server-parent</artifactId>
+        <version>0.3.16</version>
+    </parent>
+
+    <!--代码仓库-->
+    <scm>
+        <connection>${project.gitlab.connection}</connection>
+        <developerConnection>${project.gitlab.connection}</developerConnection>
+        <url>${project.gitlab.url}</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <properties>
+        <project.gitlab.connection>scm:git:git@git.zhihanyun.com:server-framework/server-component/server-base-auth.git
+        </project.gitlab.connection>
+        <project.gitlab.url>scm:git:https://git.zhihanyun.com/server-framework/server-component/server-base-auth</project.gitlab.url>
+        <server-base-common.version>0.1.16</server-base-common.version>
+        <server-base-redis.version>0.1.3</server-base-redis.version>
+    </properties>
+
+    <dependencies>
+        <!-- base-component -->
+        <dependency>
+            <groupId>cn.zhihan.framework</groupId>
+            <artifactId>server-base-common</artifactId>
+            <version>${server-base-common.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.zhihan.framework</groupId>
+            <artifactId>server-base-redis</artifactId>
+            <version>${server-base-redis.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-oauth2</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>nimbus-jose-jwt</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!--maven仓库配置-->
+    <repositories>
+        <repository>
+            <id>zh-releases</id>
+            <url>https://mvn.zhihanyun.com/repository/maven-releases/</url>
+        </repository>
+        <repository>
+            <id>zh-snapshots</id>
+            <url>https://mvn.zhihanyun.com/repository/maven-snapshots/</url>
+        </repository>
+    </repositories>
+
+    <!--构建配置-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>none</phase>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

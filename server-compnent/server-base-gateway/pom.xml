@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.zhihan.framework</groupId>
+    <artifactId>server-base-gateway</artifactId>
+    <version>0.1.11-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <parent>
+        <groupId>cn.zhihan.framework</groupId>
+        <artifactId>server-parent</artifactId>
+        <version>0.3.16</version>
+    </parent>
+
+    <!--代码仓库-->
+    <scm>
+        <connection>${project.gitlab.connection}</connection>
+        <developerConnection>${project.gitlab.connection}</developerConnection>
+        <url>${project.gitlab.url}</url>
+        <tag>server-base-gateway-0.1.8</tag>
+    </scm>
+
+    <properties>
+        <project.gitlab.connection>scm:git:git@git.zhihanyun.com:server-framework/server-component/server-base-gateway.git
+        </project.gitlab.connection>
+        <project.gitlab.url>scm:git:https://git.zhihanyun.com/server-framework/server-component/server-base-gateway</project.gitlab.url>
+        <server-base-common.version>0.1.16</server-base-common.version>
+        <server-base-log.version>0.1.5</server-base-log.version>
+        <server-base-micro.version>0.1.5</server-base-micro.version>
+        <server-base-redis.version>0.1.3</server-base-redis.version>
+
+    </properties>
+
+    <dependencies>
+        <!-- base-component -->
+        <dependency>
+            <groupId>cn.zhihan.framework</groupId>
+            <artifactId>server-base-common</artifactId>
+            <version>${server-base-common.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.zhihan.framework</groupId>
+            <artifactId>server-base-log</artifactId>
+            <version>${server-base-log.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.zhihan.framework</groupId>
+            <artifactId>server-base-micro</artifactId>
+            <version>${server-base-micro.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.zhihan.framework</groupId>
+            <artifactId>server-base-redis</artifactId>
+            <version>${server-base-redis.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-resource-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-jose</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>nimbus-jose-jwt</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!--maven仓库配置-->
+    <repositories>
+        <repository>
+            <id>zh-releases</id>
+            <url>https://mvn.zhihanyun.com/repository/maven-releases/</url>
+        </repository>
+        <repository>
+            <id>zh-snapshots</id>
+            <url>https://mvn.zhihanyun.com/repository/maven-snapshots/</url>
+        </repository>
+    </repositories>
+
+    <!--构建配置-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>none</phase>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
